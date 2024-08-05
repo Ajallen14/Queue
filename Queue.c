@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int t=-1;
-int n=10;
-int q[10];
+int n=5;
+int q[5];
 int f=-1;
 int r=-1;
 

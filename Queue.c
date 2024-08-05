@@ -18,18 +18,20 @@ int isFull() {
 void enqueue(int a){
     if (isFull()) {
         printf("Queue is full\n\n");
-
     }
     if (isEmpty()) {
         f = 0;
+    }else{
+        printf("Element is added\n\n");
     }
     q[++r] = a;
-    printf("Element is added\n\n");
 }
 
 void dequeue(){
     if (isEmpty()) {
         printf("Queue is empty\n\n");
+    }else{
+        printf("Element is Removed\n\n");
     }
     int a = q[f];
     if (f == r) {
@@ -38,7 +40,6 @@ void dequeue(){
     } else {
         f++;
     }
-    printf("Element is Removed");
 }
 
 void display(){

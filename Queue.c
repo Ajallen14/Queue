@@ -3,12 +3,57 @@
 int t=-1;
 int n=10;
 int q[10];
+int f=-1;
+int r=-1;
 
-void enqueue(){}
+int isEmpty() {
+    return f == -1;
+}
 
-void dequeue(){}
+int isFull() {
+    return r == n- 1;
+}
 
-void display(){}
+
+void enqueue(int a){
+    if (isFull()) {
+        printf("Queue is full\n\n");
+
+    }
+    if (isEmpty()) {
+        f = 0;
+    }
+    q[++r] = a;
+    printf("Element is added\n\n");
+}
+
+void dequeue(){
+    if (isEmpty()) {
+        printf("Queue is empty\n\n");
+    }
+    int a = q[f];
+    if (f == r) {
+        f = -1;
+        r = -1;
+    } else {
+        f++;
+    }
+    printf("Element is Removed");
+}
+
+void display(){
+    if (isEmpty()) {
+        printf("Queue is empty\n\n");
+        return;
+    }else{
+        printf("Queue contents: ");
+        for (int i = f; i <= r; i++) {
+            printf("%d ", q[i]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
 
 int main() {
  int c=1;
@@ -21,14 +66,18 @@ int main() {
   scanf("%d", &c);
  
   if(c == 1){
-
+    int a;
+    printf("Enter an element :");
+    scanf("%d", &a);
+    enqueue(a);
   }
   
   if(c == 2){
-
+    dequeue();
   } 
   
   if(c == 3){
+    display();
   }
  }
 }

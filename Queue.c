@@ -1,54 +1,48 @@
-#include <stdio.h>
+#include<stdio.h>
+int n=5; //Max size
+int q[5];//Array
+int f=-1,r=-1;
 
-int t=-1;
-int n=5;
-int q[5];
-int f=-1;
-int r=-1;
-
-int isEmpty() {
-    return f == -1;
+int isEmpty(){
+    return f==-1;
 }
-
-int isFull() {
-    return r == n- 1;
+int isFull(){
+    return r == n-1;
 }
-
 
 void enqueue(int a){
-    if (isFull()) {
+    if(isFull()){
         printf("Queue is full\n\n");
-    }
-    if (isEmpty()) {
-        f = 0;
+    }else if(isEmpty()){
+        f=0;
+        q[++r] = a;
     }else{
-        printf("Element is added\n\n");
+        q[++r] = a;
     }
-    q[++r] = a;
+    printf("\n");
 }
 
 void dequeue(){
-    if (isEmpty()) {
+    if(isEmpty()){
         printf("Queue is empty\n\n");
     }else{
-        printf("Element is Removed\n\n");
+        printf("Element is removed\n\n");
     }
     int a = q[f];
-    if (f == r) {
-        f = -1;
-        r = -1;
-    } else {
+    if(f==r){
+        f=-1;
+        r=-1;
+    }else{
         f++;
     }
 }
 
 void display(){
-    if (isEmpty()) {
+    if(isEmpty()){
         printf("Queue is empty\n\n");
-        return;
     }else{
-        printf("Queue contents: ");
-        for (int i = f; i <= r; i++) {
+        printf("Queue Contents :");
+        for(int i=f; i<=r; i++){
             printf("%d ", q[i]);
         }
         printf("\n");
@@ -56,29 +50,26 @@ void display(){
     printf("\n");
 }
 
-int main() {
- int c=1;
- while(c!=4){
-  printf("Enter '1' for Enqueue \n");
-  printf("Enter '2' for Dequeue\n");
-  printf("Enter '3' for Display \n");
-  printf("Enter '4' to Exit \n");
-  printf("Enter ur choice :");
-  scanf("%d", &c);
- 
-  if(c == 1){
-    int a;
-    printf("Enter an element :");
-    scanf("%d", &a);
-    enqueue(a);
-  }
-  
-  if(c == 2){
-    dequeue();
-  } 
-  
-  if(c == 3){
-    display();
-  }
- }
+void main(){
+    int c=1;
+    while(c!=4){
+        printf("Enter 1 for Enqueue\n");
+        printf("Enter 2 for Dequeue\n");
+        printf("Enter 3 for Display\n");
+        printf("Enter 4 for exit\n");
+        printf("Enter ur choice :");
+        scanf("%d", &c);
+        if(c==1){
+            int a;
+            printf("Enter an element :");
+            scanf("%d", &a);
+            enqueue(a);
+        }
+        if(c==2){
+            dequeue();
+        }
+        if(c==3){
+            display();
+        }
+    }
 }

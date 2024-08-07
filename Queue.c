@@ -13,6 +13,7 @@ int isFull(){
 void enqueue(int a){
     if(isFull()){
         printf("Queue is full\n\n");
+        return;
     }else if(isEmpty()){
         f=0;
         q[++r] = a;
@@ -51,8 +52,9 @@ void display(){
 }
 
 void main(){
-    int c=1;
-    while(c!=4){
+    int c;
+    do
+    {
         printf("Enter 1 for Enqueue\n");
         printf("Enter 2 for Dequeue\n");
         printf("Enter 3 for Display\n");
@@ -71,5 +73,5 @@ void main(){
         if(c==3){
             display();
         }
-    }
+    }while (c!=4);
 }
